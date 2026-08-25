@@ -588,6 +588,7 @@
       <select name="type">
         <option value="lab">实验报告</option>
         <option value="knowledge">专业知识</option>
+        <option value="reading">阅读分享</option>
         <option value="life">奇奇的华农生活</option>
         <option value="reflection">随想及复盘</option>
       </select>
@@ -605,7 +606,7 @@
   <div class="toast" id="toast"></div>
 
   <script>
-    const TYPE_LABEL = { lab: "实验报告", knowledge: "专业知识", life: "奇奇的华农生活", reflection: "随想及复盘" };
+    const TYPE_LABEL = { lab: "实验报告", knowledge: "专业知识", reading: "阅读分享", life: "奇奇的华农生活", reflection: "随想及复盘" };
     const STORE = "hzau-shishan-notes-v1";
     const SEED = [
       {
@@ -720,7 +721,7 @@
         note: all.filter(n => n.type === "note").length,
         thought: all.filter(n => n.type === "thought").length
       };
-      filters.innerHTML = ["all", "lab", "knowledge", "life", "reflection"].map(k => {
+      filters.innerHTML = ["all", "lab", "knowledge", "reading", "life", "reflection"].map(k => {
         const label = k === "all" ? "全部" : TYPE_LABEL[k];
         return `<button aria-pressed="${state.type === k}" data-type="${k}">${label}<span class="count">${counts[k]}</span></button>`;
       }).join("");
